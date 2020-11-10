@@ -84,7 +84,7 @@ function testEntry(word) {
  * 
  * This is possibly the most efficient solution to the task as written
  * 
- * @param entry 
+ * @param entry the entry to record
  */
 function recordEntry(entry) {
 	var actual = { name: entry.name, points: entry.word.length };
