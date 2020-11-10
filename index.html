@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html ng-app='app'>
+
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+		integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+
+<body>
+	<div ng-controller='GameController' class='container'>
+		<h1>Palindrome Game</h1>
+		<!-- ADDITION: devmode reset button -->
+		<div class='form-group' ng-if="env === 'dev'">
+			<button ng-click='resetScores()' class='btn btn-default'>Reset</button>
+		</div>
+		<h2>Submit a new word!</h2>
+		<form role='form'>
+			<div class='form-group'>
+				<input ng-model="name" class='form-control' placeholder="Your name">
+				<input ng-model="word" class='form-control' placeholder="Word">
+				<button ng-click='submitEntry()' class='btn btn-default'>Submit word</button>
+			</div>
+		</form>
+		<h2>Top Scores</h2>
+		<ul class='list-group'>
+			<li ng-repeat="score in scores | orderBy:'-points'" class='list-group-item'>
+				<strong>{{score.name}}</strong> {{score.points}} points
+			</li>
+		</ul>
+	</div>
+	<script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.4/angular.js'></script>
+	<script src='ng/app.js'></script>
+</body>
+
+</html>
